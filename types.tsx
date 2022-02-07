@@ -14,6 +14,9 @@ export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined
   Modal: undefined
   NotFound: undefined
+  Login: undefined
+  Signup: undefined
+  Drawer: NavigatorScreenParams<RootDrawerParamList> | undefined
 }
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -29,3 +32,18 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
     BottomTabScreenProps<RootTabParamList, Screen>,
     NativeStackScreenProps<RootStackParamList>
   >
+
+export type RootDrawerParamList = {
+  Home: undefined
+  PreviousWorks: undefined
+  HelpCenter: undefined
+  ChangePassword: undefined
+}
+
+export interface User {
+  id: number
+  first_name: string
+  last_name: string
+  username: string
+  email: string
+}

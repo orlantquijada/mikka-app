@@ -31,7 +31,7 @@ export default function LoginScreen() {
   const {
     control,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<LoginRequestBody>({
     defaultValues: { password: '', username: '' },
   })
@@ -41,25 +41,10 @@ export default function LoginScreen() {
   return (
     <Center w="100%" bgColor="white" flex={1}>
       <Box safeArea p="2" py="8" w="90%" maxW="290">
-        <Heading
-          size="lg"
-          fontWeight="600"
-          color="coolGray.800"
-          _dark={{
-            color: 'warmGray.50',
-          }}
-        >
+        <Heading size="lg" fontWeight="600" color="coolGray.800">
           Welcome
         </Heading>
-        <Heading
-          mt="1"
-          _dark={{
-            color: 'warmGray.200',
-          }}
-          color="coolGray.600"
-          fontWeight="medium"
-          size="xs"
-        >
+        <Heading mt="1" color="coolGray.600" fontWeight="medium" size="xs">
           Log in to continue!
         </Heading>
 
@@ -111,17 +96,6 @@ export default function LoginScreen() {
             <FormControl.ErrorMessage>
               {errors.password?.message}
             </FormControl.ErrorMessage>
-            <Link
-              _text={{
-                fontSize: 'xs',
-                fontWeight: '500',
-                color: 'indigo.500',
-              }}
-              alignSelf="flex-end"
-              mt="1"
-            >
-              Forget Password?
-            </Link>
           </FormControl>
           {apiError ? (
             <Alert w="100%" status="error">
@@ -141,23 +115,11 @@ export default function LoginScreen() {
             </Alert>
           ) : null}
 
-          <Button
-            mt="2"
-            colorScheme="indigo"
-            onPress={handleSubmit(onSubmit)}
-            isLoading={isSubmitting}
-            isLoadingText="Loading"
-          >
+          <Button mt="2" colorScheme="indigo" onPress={handleSubmit(onSubmit)}>
             Log in
           </Button>
           <HStack mt="6" justifyContent="center">
-            <Text
-              fontSize="sm"
-              color="coolGray.600"
-              _dark={{
-                color: 'warmGray.200',
-              }}
-            >
+            <Text fontSize="sm" color="coolGray.600">
               I'm a new user.{' '}
             </Text>
             <Link

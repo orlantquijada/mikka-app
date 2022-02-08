@@ -15,6 +15,7 @@ import LinkingConfiguration from './LinkingConfiguration'
 import LoginScreen from '../screens/LoginScreen'
 import { userSelector, useUserStore } from '../stores/userStore'
 import CustomDrawer from '../components/CustomDrawer'
+import SignupScreen from '../screens/SignupScreen'
 
 export default function Navigation({
   colorScheme,
@@ -55,7 +56,7 @@ function RootNavigator() {
       ) : (
         <Stack.Group screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Signup" component={PlaceholderComponent} />
+          <Stack.Screen name="Signup" component={SignupScreen} />
         </Stack.Group>
       )}
     </Stack.Navigator>

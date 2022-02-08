@@ -22,4 +22,7 @@ export interface SignupRequestBody {
 }
 
 export const signup = (body: SignupRequestBody) =>
-  axios.post<User>(`${resource}/signup`, body).then((res) => res.data)
+  axios
+    .post<User>(`${resource}/signup`, body)
+    .then((res) => res.data)
+    .then((user) => useUserStore.setState({ user }))

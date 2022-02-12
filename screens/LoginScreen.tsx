@@ -49,6 +49,16 @@ export default function LoginScreen() {
         </Heading>
 
         <VStack space={3} mt="5">
+          {apiError ? (
+            <Alert w="100%" status="error">
+              <HStack space="2" flexShrink={1} alignItems="center">
+                <Alert.Icon size="3" />
+                <Text fontSize="xs" color="coolGray.800">
+                  {apiError}
+                </Text>
+              </HStack>
+            </Alert>
+          ) : null}
           <FormControl isInvalid={Boolean(errors.username?.message)}>
             <FormControl.Label>Username</FormControl.Label>
             <Controller
@@ -97,23 +107,6 @@ export default function LoginScreen() {
               {errors.password?.message}
             </FormControl.ErrorMessage>
           </FormControl>
-          {apiError ? (
-            <Alert w="100%" status="error">
-              <HStack
-                flexShrink={1}
-                space={2}
-                alignItems="center"
-                justifyContent="flex-start"
-              >
-                <HStack space={2} flexShrink={1}>
-                  <Alert.Icon mt="1" size="3" />
-                  <Text fontSize="sm" color="coolGray.800">
-                    {apiError}
-                  </Text>
-                </HStack>
-              </HStack>
-            </Alert>
-          ) : null}
 
           <Button mt="2" colorScheme="indigo" onPress={handleSubmit(onSubmit)}>
             Log in

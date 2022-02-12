@@ -15,6 +15,7 @@ import LoginScreen from '../screens/LoginScreen'
 import { userSelector, useUserStore } from '../stores/userStore'
 import CustomDrawer from '../components/CustomDrawer'
 import SignupScreen from '../screens/SignupScreen'
+import HomeScreen from '../screens/HomeScreen'
 
 export default function Navigation({
   colorScheme,
@@ -65,7 +66,7 @@ function DrawerNavigator() {
       drawerContent={CustomDrawer}
       screenOptions={{ drawerType: 'front' }}
     >
-      <Drawer.Screen name="Home" component={PlaceholderComponent} />
+      <Drawer.Screen name="Home" component={HomeScreen} />
       <Drawer.Screen
         name="PreviousWorks"
         component={PlaceholderComponent}

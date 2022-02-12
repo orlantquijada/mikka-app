@@ -5,6 +5,7 @@
 
 import { NavigatorScreenParams } from '@react-navigation/native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
+import { DrawerScreenProps } from '@react-navigation/drawer'
 
 export type RootStackParamList = {
   NotFound: undefined
@@ -22,6 +23,9 @@ export type RootDrawerParamList = {
   HelpCenter: undefined
   ChangePassword: undefined
 }
+
+export type RootDrawerScreenProps<Screen extends keyof RootDrawerParamList> =
+  DrawerScreenProps<RootDrawerParamList, Screen>
 
 export interface User {
   id: number

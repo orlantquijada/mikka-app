@@ -8,7 +8,6 @@ import { createDrawerNavigator } from '@react-navigation/drawer'
 import * as React from 'react'
 import { ColorSchemeName, Text } from 'react-native'
 
-import ModalScreen from '../screens/ModalScreen'
 import NotFoundScreen from '../screens/NotFoundScreen'
 import { RootDrawerParamList, RootStackParamList } from '../types'
 import LinkingConfiguration from './LinkingConfiguration'
@@ -42,11 +41,6 @@ function RootNavigator() {
       {user ? (
         <Stack.Group screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Drawer" component={DrawerNavigator} />
-          <Stack.Screen
-            name="Modal"
-            component={ModalScreen}
-            options={{ presentation: 'modal' }}
-          />
           <Stack.Screen
             name="NotFound"
             component={NotFoundScreen}
